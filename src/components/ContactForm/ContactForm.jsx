@@ -39,6 +39,7 @@ export class ContactForm extends Component {
             onChange={this.onInputChange}
             placeholder="Enter name..."
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Please enter your name using only letters, apostrophes, dashes, and spaces."
           />
         </label>
         <label className={css.labelTel}>
@@ -52,6 +53,7 @@ export class ContactForm extends Component {
             onChange={this.onInputChange}
             placeholder="Enter number..."
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+             title="Enter your phone number in the following format: +country code (for example, +38 for Ukraine) followed by your number. Allowed characters: digits, spaces, dashes, parentheses."
           />
         </label>
         <button className={css.buttonAddContact} type="submit">
