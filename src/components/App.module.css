@@ -12,6 +12,10 @@
 }
 
 .mainTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   color: rgb(18, 27, 189);
 
   font-weight: 700;
@@ -30,3 +34,9 @@
 
   color: rgb(183, 17, 17);
 }
+
+/* .iconContact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */

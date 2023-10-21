@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {MdContactPhone} from 'react-icons/md';
 import css from './App.module.css'
 
 import { ContactForm } from './ContactForm/ContactForm';
@@ -37,7 +38,7 @@ export class App extends Component {
     const normalizedName = name.toLowerCase();
 
     if (contacts.some(contact => contact.name.toLowerCase() === normalizedName)) {
-      return Notify.info(`${name} is already in contacts`);
+      return Notify.info(`${name} is already in your contacts`);
     }
 
     const contact = {
@@ -50,14 +51,14 @@ export class App extends Component {
       contacts: [...prevState.contacts, contact],
     }));
 
-    Notify.success(`${name} has been successfully added to contacts`);
+    Notify.success(`${name} has been successfully added to your contacts`);
   };
 
   onDeleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
-    Notify.success('The contact has been successfully removed');
+    Notify.success('The contact has been successfully deleted');
   };
 
   filterChange = event => {
@@ -77,7 +78,7 @@ export class App extends Component {
     return (
       
         <div className={css.container}>
-          <h1 className={css.mainTitle}>Phonebook</h1>
+          <h1 className={css.mainTitle}><MdContactPhone className={css.iconContact}/>Phonebook</h1>
           <ContactForm onSubmit={this.addContact} />
           <h2 className={css.contactsTitle}>Contacts</h2>
           <SearchFilter value={filter} onChange={this.filterChange} />
