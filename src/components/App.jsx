@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
 import {MdContactPhone} from 'react-icons/md';
 import css from './App.module.css'
 
@@ -54,12 +55,26 @@ export class App extends Component {
     Notify.success(`${name} has been successfully added to your contacts`);
   };
 
-  onDeleteContact = contactId => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
-    }));
-    Notify.success('The contact has been successfully deleted');
-  };
+ 
+
+ onDeleteContact = contactId => {
+  Confirm.show(
+   'Confirm',
+'Are you sure you want to delete this contact?',
+'Yes',
+'No',
+    function() {
+      this.setState(prevState => ({
+        contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+      }));
+      Notify.success('The contact has been successfully deleted');
+    }.bind(this),
+    function() {
+      Notify.info('The deletion has been cancelled');
+    }.bind(this)
+  );
+};
+
 
   filterChange = event => {
     this.setState({ filter: event.currentTarget.value });
