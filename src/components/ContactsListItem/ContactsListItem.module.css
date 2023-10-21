@@ -1,0 +1,26 @@
+.listItem {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  font-weight: 700;
+}
+
+.buttonDeleteItem {
+  min-width: 70px;
+  padding: 5px;
+
+  font-weight: 700;
+
+  border: none;
+  border-radius: 20px;
+
+  color: rgb(251, 249, 220);
+  background-color: rgb(87, 61, 236);
+
+  box-shadow: 2px 2px 2px 1px rgba(66, 20, 66, 0.63);
+
+  cursor: pointer;
+}

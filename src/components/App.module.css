@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+
+  min-height: 100vh;
+
+  color: #000;
+  background: #88e0f6;
+}
+
+.mainTitle {
+  color: rgb(18, 27, 189);
+
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contactsTitle {
+  composes: mainTitle;
+}
+
+.noContactsText {
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: rgb(183, 17, 17);
+}
